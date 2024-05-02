@@ -1,4 +1,4 @@
-Part 1: Rule Based NLP and Regex
+#Part 1: Rule Based NLP and Regex
 
 
 In this part, we are creating a Python code that generates a bill from a given text using regular expressions (regex).
