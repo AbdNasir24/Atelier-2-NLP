@@ -1,42 +1,49 @@
+Part 1: Rule Based NLP and Regex
 
-Summary:
-During this lab, we explored various techniques in Natural Language Processing (NLP) including rule-based methods, regular expressions, and word embeddings. The main objectives were to generate a bill from a text using regex and to apply different word embedding techniques on a given dataset.
-In the first part of the lab, we successfully implemented a Python code using regex to generate a bill from a given text. We extracted product names, quantities, and prices using regular expressions and formatted them into a bill format.
-For the second part, we explored different word embedding techniques:
-One-Hot Encoding, Bag of Words, and TF-IDF:
-We applied these techniques to convert text data into numerical vectors.
-One-Hot Encoding represents each word as a binary vector, Bag of Words counts the frequency of each word, and TF-IDF gives importance to words based on their frequency in the corpus.
-Word2Vec (Skip-gram and CBOW):
-We used the Word2Vec model to learn word embeddings from our dataset.
-Skip-gram predicts context words given a target word, while CBOW predicts the target word given context words.
-GloVe and FastText:
-We utilized pre-trained GloVe and FastText models to obtain word embeddings.
-GloVe (Global Vectors for Word Representation) and FastText both generate word vectors based on co-occurrence statistics and subword information.
-Finally, we visualized the encoded and vectorized vectors using t-SNE (t-Distributed Stochastic Neighbor Embedding) algorithm to understand their distribution in a lower-dimensional space.
-Report:
-Lab Report: NLP Rule-based, Regex, and Word Embedding Techniques
-Objective:
-The main objective of this lab was to gain practical experience in NLP techniques, including rule-based methods, regular expressions, and word embeddings. Specifically, we aimed to generate a bill from a given text using regex and apply various word embedding techniques on a provided dataset.
-Part 1: Rule-Based NLP and Regex:
-We successfully implemented a Python code using regular expressions to extract product information from a text and generate a bill. The code parsed the text, identified product names, quantities, and prices, and formatted them into a bill format.
-Part 2: Word Embedding:
-One-Hot Encoding, Bag of Words, TF-IDF:
-We applied these techniques to convert text data into numerical vectors.
-One-Hot Encoding represented each word as a binary vector, Bag of Words counted the frequency of each word, and TF-IDF gave importance to words based on their frequency in the corpus.
+
+In this part, we are creating a Python code that generates a bill from a given text using regular expressions (regex).
+
+Regular Expressions (Regex):
+Regular expressions are sequences of characters that define a search pattern.
+We define patterns to match specific parts of the input text, such as product names and prices.
+Generating Bill Function:
+We define a function generate_bill(text) that takes the input text as a parameter.
+Inside the function, we define regex patterns to extract product names and prices from the text.
+We use re.search() to find matches for each pattern in the text.
+If a match is found, we extract the relevant information and store it in lists.
+We then create a Pandas DataFrame to organize the extracted data into a bill format.
+Finally, we calculate the total price for each product by multiplying the quantity with the unit price.
+Part 2: Word Embedding
+In this part, we apply various word embedding techniques on a sample dataset and visualize the vectors using t-SNE.
+
+One-Hot Encoding:
+We use CountVectorizer with binary=True to create one-hot encoded vectors.
+Each word is represented as a binary vector, where each dimension corresponds to a unique word in the vocabulary.
+Bag of Words (BoW):
+We use CountVectorizer to create bag of words vectors.
+Each word is represented as a count of its occurrences in the document.
+TF-IDF (Term Frequency-Inverse Document Frequency):
+We use TfidfVectorizer to create TF-IDF vectors.
+TF-IDF measures the importance of a word in a document relative to the entire corpus.
 Word2Vec:
-We used Word2Vec with Skip-gram and CBOW architectures to learn word embeddings.
-Skip-gram predicted context words given a target word, while CBOW predicted the target word given context words.
-GloVe and FastText:
-We utilized pre-trained GloVe and FastText models to obtain word embeddings.
-GloVe and FastText both provided word vectors based on co-occurrence statistics and subword information.
-Visualization:
-We visualized the encoded and vectorized vectors using t-SNE algorithm to observe their distribution in a lower-dimensional space. This helped us understand the relationships between words in the embedding space.
+We use Word2Vec model from Gensim to generate word embeddings.
+We train the model on our sample dataset using Skip-Gram approach.
+Skip-Gram predicts the context words given a target word.
+GloVe:
+We load a pre-trained GloVe model using Gensim.
+GloVe stands for Global Vectors for Word Representation.
+It learns word vectors by factorizing the co-occurrence matrix of words.
+FastText:
+We use FastText model from Gensim to generate word embeddings.
+FastText breaks words into n-grams and represents each word as a sum of its n-gram vectors.
+t-SNE Visualization:
+We use t-distributed Stochastic Neighbor Embedding (t-SNE) to reduce the dimensionality of the vectors.
+t-SNE is a technique for dimensionality reduction that is particularly well-suited for visualizing high-dimensional data.
+We plot the vectors in a 2D space to visualize their relationships.
 Conclusion:
-Through this lab, we gained hands-on experience in NLP techniques, regex, and word embeddings. We learned how to extract meaningful information from text using rule-based methods and regex, and how to represent words numerically using various embedding techniques. Visualizing word embeddings provided insights into the semantic relationships between words. Overall, this lab enhanced our understanding of NLP fundamentals and their practical applications.
-Tools Used:
-Google Colab
-GitLab/GitHub
-SpaCy
-NLTK
-Scikit-learn (Sklearn)
-
+Each word embedding technique captures different aspects of the data.
+One-hot encoding and Bag of Words are simple and interpretable but lose semantic information.
+TF-IDF considers the importance of words but still lacks context.
+Word2Vec, GloVe, and FastText capture semantic relationships between words and are more suitable for NLP tasks.
+Visualization with t-SNE helps us understand the relationships between words in a lower-dimensional space.
+By combining these techniques, we can represent text data in a format suitable for various NLP tasks like classification, clustering, and information retrieval
